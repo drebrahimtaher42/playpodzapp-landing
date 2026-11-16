@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-title-ar="play podz — نظام إدارة وتشغيل صالات الترفيه والألعاب" data-title-en="play podz — Entertainment Venue Operating System">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>play podz — نظام إدارة وتشغيل صالات الترفيه والألعاب</title>
+    <meta name="description" content="نظام تشغيل سحابي متكامل لإدارة صالات الترفيه والألعاب (الكاشير، المالك، البار، المخزون، وقوائم انتظار واتساب) مربوط مباشرة بمنصة الحجز playpodz.app." />
+    <meta name="theme-color" content="#0d1b3e" />
+    <link rel="icon" type="image/png" href="./assets/brand/logo-icon.png" />
+    <link rel="apple-touch-icon" href="./assets/brand/logo-icon.png" />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+  </head>
+  <body class="has-home-bg">
+    
+    <header class="floating-header">
+      <div dir="ltr" class="header-bar">
+        <div class="header-start">
+          <a href="https://playpodz.app/" target="_blank" rel="noopener noreferrer" class="lg header-action-pill">
+            <span style="color:#bed7f1">↗</span>
+            <span class="header-mobile-only" data-lang="ar">المنصة</span>
+            <span class="header-mobile-only" data-lang="en">App</span>
+            <span class="header-mobile-hide" data-lang="ar">زيارة منصتنا الرئيسية</span>
+            <span class="header-mobile-hide" data-lang="en">Visit Our Main Platform</span>
+          </a>
+        </div>
+
+        <a href="./" class="header-center-logo" aria-label="play podz home">
+          
+        <span data-logo-morph role="img" aria-label="play podz" class="logo-morph-box size-top">
+          <img data-logo-half="play" src="./assets/brand/logo-centered-gold.svg" alt="" class="logo-half logo-half-play" />
+          <img data-logo-half="podz" src="./assets/brand/logo-centered-gold.svg" alt="" class="logo-half logo-half-podz" />
+        </span>
+        </a>
+
+        <nav class="lg header-capsule-nav" dir="rtl" aria-label="Primary Navigation">
+          <a href="./" class="header-capsule-logo" aria-label="play podz home">
+            
+        <span data-logo-morph role="img" aria-label="play podz" class="logo-morph-box size-cap">
+          <img data-logo-half="play" src="./assets/brand/logo-centered-gold.svg" alt="" class="logo-half logo-half-play" />
+          <img data-logo-half="podz" src="./assets/brand/logo-centered-gold.svg" alt="" class="logo-half logo-half-podz" />
+        </span>
+          </a>
+          <span aria-hidden="true" class="header-capsule-divider"></span>
+          <a href="./" class="header-nav-item lg-pill is-active"><span data-lang="ar">الرئيسية</span><span data-lang="en">Overview</span></a>
+<a href="./features/" class="header-nav-item "><span data-lang="ar">المميزات</span><span data-lang="en">Features</span></a>
+<a href="./panels/" class="header-nav-item "><span data-lang="ar">لوحات التحكم</span><span data-lang="en">Panels</span></a>
+<a href="./venues/" class="header-nav-item "><span data-lang="ar">القطاعات</span><span data-lang="en">Venues</span></a>
+<a href="./contact/" class="header-nav-item "><span data-lang="ar">اطلب عرض سعر</span><span data-lang="en">Request Quote</span></a>
+        </nav>
+
+        <div class="header-end">
+          <a href="./contact/" class="btn btn-primary" style="height:2rem;padding-inline:0.85rem;font-size:0.78rem;">
+            <span class="header-mobile-only" data-lang="ar">عرض سعر</span>
+            <span class="header-mobile-only" data-lang="en">Quote</span>
+            <span class="header-mobile-hide" data-lang="ar">اطلب عرض سعر</span>
+            <span class="header-mobile-hide" data-lang="en">Request a Quote</span>
+          </a>
+          <div class="lg header-right-capsule">
+            <button type="button" class="lang-circle" data-lang-toggle aria-label="Toggle language">EN</button>
+          </div>
+        </div>
+      </div>
+
+      <nav class="tablet-nav-row" aria-label="Tablet Navigation">
+        <div class="lg tablet-nav-inner">
+          <a href="./" class="header-nav-item lg-pill is-active"><span data-lang="ar">الرئيسية</span><span data-lang="en">Overview</span></a>
+<a href="./features/" class="header-nav-item "><span data-lang="ar">المميزات</span><span data-lang="en">Features</span></a>
+<a href="./panels/" class="header-nav-item "><span data-lang="ar">لوحات التحكم</span><span data-lang="en">Panels</span></a>
+<a href="./venues/" class="header-nav-item "><span data-lang="ar">القطاعات</span><span data-lang="en">Venues</span></a>
+<a href="./contact/" class="header-nav-item "><span data-lang="ar">اطلب عرض سعر</span><span data-lang="en">Request Quote</span></a>
+        </div>
+      </nav>
+    </header>
+    
+        <div id="flying-octopus" aria-hidden="true" class="octo-flying" style="visibility:hidden">
+          <img id="flying-octopus-img" src="./assets/brand/octopus.svg" alt="" class="octo-bob" style="width:100%;height:auto" />
+        </div>
+    <nav class="phone-tab-bar-wrap" aria-label="Mobile Navigation">
+      <div class="lg phone-tab-bar">
+        <span aria-hidden="true" class="lg-pill phone-tab-lens" style="width:calc((100% - 0.5rem) / 5);inset-inline-start:calc(0.25rem + (100% - 0.5rem) * 0 / 5);"></span>
+        <a href="./" class="phone-tab-link is-active">
+          <span class="phone-tab-icon" aria-hidden="true">🧭</span>
+          <span class="phone-tab-label"><span data-lang="ar">الرئيسية</span><span data-lang="en">Overview</span></span>
+        </a>
+<a href="./features/" class="phone-tab-link ">
+          <span class="phone-tab-icon" aria-hidden="true">⚙️</span>
+          <span class="phone-tab-label"><span data-lang="ar">المميزات</span><span data-lang="en">Features</span></span>
+        </a>
+<a href="./panels/" class="phone-tab-link ">
+          <span class="phone-tab-icon" aria-hidden="true">🖥️</span>
+          <span class="phone-tab-label"><span data-lang="ar">لوحات التحكم</span><span data-lang="en">Panels</span></span>
+        </a>
+<a href="./venues/" class="phone-tab-link ">
+          <span class="phone-tab-icon" aria-hidden="true">🎯</span>
+          <span class="phone-tab-label"><span data-lang="ar">القطاعات</span><span data-lang="en">Venues</span></span>
+        </a>
+<a href="./contact/" class="phone-tab-link ">
+          <span class="phone-tab-icon" aria-hidden="true">💬</span>
+          <span class="phone-tab-label"><span data-lang="ar">اطلب عرض سعر</span><span data-lang="en">Request Quote</span></span>
+        </a>
+      </div>
+    </nav>
+    
+
+    <main class="home-page-bg">
+      <!-- Exact Hero Section matching playpodz.app (plain off-white pattern, zero overlap) -->
+      <section class="hero-section">
+        <div aria-hidden="true" class="hero-pattern-mask">
+          <div class="hero-pattern">
+            <div class="hero-pattern__tiles hero-pattern__base"></div>
+          </div>
+        </div>
+
+        <div class="hero-center-stack">
+          <div id="hero-octopus" aria-hidden="true" class="hero-octopus-box">
+            <img src="./assets/brand/octopus.svg" alt="" class="octo-bob" style="width:100%;height:100%" />
+          </div>
+
+          <p class="hero-today-lead">
+            <span data-lang="ar">هنساعدك تدير</span>
+            <span data-lang="en">We help you manage</span>
+          </p>
+
+          <div class="hero-games-wrap">
+            <div class="hero-games-window">
+              <p id="hero-game-word" aria-live="polite" class="hero-games-word" style="color:#C9A84C">حساباتك</p>
+            </div>
+            <span id="hero-game-bar" aria-hidden="true" class="hero-games-bar" style="width:84px;background:#C9A84C"></span>
+            <span id="hero-game-dots" aria-hidden="true" class="hero-games-dots">
+              <span class="hero-games-dot" style="width:22px;background:#C9A84C"></span>
+              <span class="hero-games-dot" style="width:6px;background:rgba(245,245,242,.25)"></span>
+              <span class="hero-games-dot" style="width:6px;background:rgba(245,245,242,.25)"></span>
+              <span class="hero-games-dot" style="width:6px;background:rgba(245,245,242,.25)"></span>
+              <span class="hero-games-dot" style="width:6px;background:rgba(245,245,242,.25)"></span>
+              <span class="hero-games-dot" style="width:6px;background:rgba(245,245,242,.25)"></span>
+            </span>
+          </div>
+
+          <h1 class="hero-h1">
+            <span data-lang="ar">اللعبة في ايدك!</span>
+            <span data-lang="en">The game is in your hand!</span>
+          </h1>
+          <p lang="en" dir="ltr" class="hero-tagline-en">PLUG INTO YOUR GAME!</p>
+
+          <p class="hero-sub-copy">
+            <span data-lang="ar">
+              أدِر الأجهزة والجلسات والكاشير والبار والمخزون في ثانية.<br />
+              الصالة زحمة؟ <span class="hero-sub-hl">هنبعت واتساب أوتوماتيك</span> لأول لاعب في الانتظار أول ما جهاز يفضى.
+            </span>
+            <span data-lang="en">
+              Run stations, live timers, cashier, bar POS, and inventory in a second.<br />
+              Floor full? <span class="hero-sub-hl">We auto-WhatsApp the next player</span> the moment a station frees up.
+            </span>
+          </p>
+
+          <p class="live-status-line">
+            <span aria-hidden="true" class="live-dot"></span>
+            <span data-lang="ar">5 لوحات تشغيل متزامنة · مربوط مباشرة بمنصة الحجز playpodz.app</span>
+            <span data-lang="en">5 Live Synced Role Panels · Connected to playpodz.app Marketplace</span>
+          </p>
+
+          <div class="hero-cta-row">
+            <a href="./contact/" class="btn btn-primary">
+              <span data-lang="ar">اطلب عرض سعر لصالتك</span>
+              <span data-lang="en">Request a Quote</span>
+            </a>
+            <a href="https://playpodz.app/" target="_blank" rel="noopener noreferrer" class="lg btn">
+              <span data-lang="ar">زيارة منصتنا الرئيسية</span>
+              <span data-lang="en">Visit Our Main Platform</span>
+            </a>
+            <a href="https://wa.me/201142762313" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+              <span data-lang="ar">واتساب المبيعات</span>
+              <span data-lang="en">WhatsApp Sales</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Fade marker: navy above, fading cleanly into obsidian #070d1c right here -->
+      <div id="fade-start-marker" aria-hidden="true"></div>
+
+      <!-- Interactive Venue OS Command Center -->
+      <section class="steps-section reveal">
+        <div class="container">
+          <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1rem;margin-bottom:1.25rem;">
+            <div>
+              <span class="kicker-pill">
+                <span>⚡</span>
+                <span data-lang="ar">معاينة حية للوحات السيستم</span>
+                <span data-lang="en">INTERACTIVE SYSTEM PREVIEW</span>
+              </span>
+              <h2 class="section-heading">
+                <span data-lang="ar">شوف لوحات التحكم اللي بيدير بيها فريقك الصالة</span>
+                <span data-lang="en">Experience the Panels Your Team Uses Every Day</span>
+              </h2>
+            </div>
+            <a href="./panels/" class="lg header-action-pill">
+              <span data-lang="ar">تفاصيل الـ 5 لوحات ←</span>
+              <span data-lang="en">Explore All 5 Panels →</span>
+            </a>
+          </div>
+
+          <div class="os-cockpit-shell" data-tab-group>
+            <div class="os-cockpit-inner">
+              <div class="chip-rail" role="tablist">
+                <button type="button" class="chip-btn is-active" data-os-tab="owner" role="tab" aria-selected="true">
+                  <span>👑</span>
+                  <span data-lang="ar">لوحة المالك (Owner Cockpit)</span>
+                  <span data-lang="en">Owner Cockpit</span>
+                </button>
+                <button type="button" class="chip-btn" data-os-tab="cashier" role="tab" aria-selected="false">
+                  <span>🖥️</span>
+                  <span data-lang="ar">شاشة الكاشير (Floor View)</span>
+                  <span data-lang="en">Cashier Floor View</span>
+                </button>
+                <button type="button" class="chip-btn" data-os-tab="bar" role="tab" aria-selected="false">
+                  <span>☕</span>
+                  <span data-lang="ar">لوحة البار والمخزون</span>
+                  <span data-lang="en">Bar &amp; Stock POS</span>
+                </button>
+                <button type="button" class="chip-btn" data-os-tab="wa" role="tab" aria-selected="false">
+                  <span>💬</span>
+                  <span data-lang="ar">إشعارات واتساب التلقائية</span>
+                  <span data-lang="en">WhatsApp Notify Me</span>
+                </button>
+              </div>
+
+              <div class="os-panel is-active" data-os-panel="owner">
+                <div class="grid-4">
+                  <div class="kpi-tile">
+                    <div class="kpi-tile-label"><span data-lang="ar">نسبة استخدام الأجهزة اليوم</span><span data-lang="en">Today's Station Utilization</span></div>
+                    <div class="kpi-tile-val" style="color:#4ade80">78.4%</div>
+                  </div>
+                  <div class="kpi-tile">
+                    <div class="kpi-tile-label"><span data-lang="ar">الإيراد / ساعة تشغيل</span><span data-lang="en">Revenue / Operating Hour</span></div>
+                    <div class="kpi-tile-val" style="color:#e0c578">685 EGP</div>
+                  </div>
+                  <div class="kpi-tile">
+                    <div class="kpi-tile-label"><span data-lang="ar">الجلسات النشطة حالياً</span><span data-lang="en">Active Live Sessions</span></div>
+                    <div class="kpi-tile-val" style="color:#bed7f1">12 / 15</div>
+                  </div>
+                  <div class="kpi-tile">
+                    <div class="kpi-tile-label"><span data-lang="ar">الإيراد المفقود من الخمول</span><span data-lang="en">Idle Station Loss</span></div>
+                    <div class="kpi-tile-val" style="color:#fca5a5">150 EGP</div>
+                  </div>
+                </div>
+                <div class="peak-chart-box">
+                  <div style="display:flex;justify-content:space-between;align-items:center;font-size:0.8rem;">
+                    <span style="font-weight:700;color:#d8cbb3;"><span data-lang="ar">ساعات الذروة (آخر 7 أيام)</span><span data-lang="en">Peak Hours (Last 7 Days)</span></span>
+                    <span style="color:var(--muted-foreground);font-size:0.75rem;"><span data-lang="ar">الأعمدة الذهبية = ساعات الذروة</span><span data-lang="en">Gold bars = Peak demand</span></span>
+                  </div>
+                  <div class="peak-bars" aria-hidden="true">
+                    <div class="peak-bar" style="height:24%"></div>
+                    <div class="peak-bar" style="height:32%"></div>
+                    <div class="peak-bar" style="height:40%"></div>
+                    <div class="peak-bar" style="height:55%"></div>
+                    <div class="peak-bar" style="height:68%"></div>
+                    <div class="peak-bar is-peak" style="height:88%"></div>
+                    <div class="peak-bar is-peak" style="height:100%"></div>
+                    <div class="peak-bar is-peak" style="height:94%"></div>
+                    <div class="peak-bar is-peak" style="height:82%"></div>
+                    <div class="peak-bar" style="height:64%"></div>
+                    <div class="peak-bar" style="height:46%"></div>
+                    <div class="peak-bar" style="height:28%"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="os-panel" data-os-panel="cashier">
+                <div class="grid-4">
+                  <div class="kpi-tile">
+                    <div style="display:flex;justify-content:space-between;font-size:0.82rem;font-weight:800;">
+                      <span>VIP Room 01 · PS5</span>
+                      <span style="color:#fca5a5"><span data-lang="ar">في جلسة</span><span data-lang="en">Busy</span></span>
+                    </div>
+                    <div dir="ltr" style="margin-top:0.4rem;font-size:0.86rem;font-family:monospace;font-weight:800;color:#fff;" data-live-seconds="6130">01:42:10</div>
+                    <div style="margin-top:0.15rem;font-size:0.76rem;color:var(--muted-foreground);">F&amp;B: 120 EGP</div>
+                  </div>
+                  <div class="kpi-tile">
+                    <div style="display:flex;justify-content:space-between;font-size:0.82rem;font-weight:800;">
+                      <span>Zone A · PS5 Pro</span>
+                      <span style="color:#4ade80"><span data-lang="ar">متاح</span><span data-lang="en">Free</span></span>
+                    </div>
+                    <div style="margin-top:0.45rem;font-size:0.8rem;color:var(--muted-foreground);"><span data-lang="ar">جاهز لبدء جلسة زائر أو حجز</span><span data-lang="en">Ready for walk-in or QR booking</span></div>
+                  </div>
+                  <div class="kpi-tile">
+                    <div style="display:flex;justify-content:space-between;font-size:0.82rem;font-weight:800;">
+                      <span>Escape Room · Vault</span>
+                      <span style="color:#fcd34d"><span data-lang="ar">محجوز</span><span data-lang="en">Reserved</span></span>
+                    </div>
+                    <div style="margin-top:0.45rem;font-size:0.8rem;color:var(--muted-foreground);"><span data-lang="ar">تأكيد حضور اللاعب بكود QR</span><span data-lang="en">Online Booking · QR Check-in</span></div>
+                  </div>
+                  <div class="kpi-tile">
+                    <div style="display:flex;justify-content:space-between;font-size:0.82rem;font-weight:800;">
+                      <span>Billiards 02</span>
+                      <span style="color:#fca5a5"><span data-lang="ar">في جلسة</span><span data-lang="en">Busy</span></span>
+                    </div>
+                    <div dir="ltr" style="margin-top:0.4rem;font-size:0.86rem;font-family:monospace;font-weight:800;color:#fff;" data-live-seconds="3250">00:54:10</div>
+                    <div style="margin-top:0.15rem;font-size:0.76rem;color:#bed7f1;"><span data-lang="ar">طابور الانتظار: 3 لاعبين</span><span data-lang="en">Waitlist: 3 players</span></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="os-panel" data-os-panel="bar">
+                <div class="grid-2">
+                  <div class="kpi-tile">
+                    <div style="display:flex;justify-content:space-between;font-size:0.84rem;font-weight:800;">
+                      <span>Order #418 · VIP Room 01</span>
+                      <span style="color:#fcd34d"><span data-lang="ar">قيد التحضير</span><span data-lang="en">Pending</span></span>
+                    </div>
+                    <div style="margin-top:0.4rem;font-size:0.82rem;color:var(--muted-foreground);">2× Iced Spanish Latte · 1× Chicken Fries — طلب QR من الغرفة</div>
+                  </div>
+                  <div class="kpi-tile">
+                    <div style="display:flex;justify-content:space-between;font-size:0.84rem;font-weight:800;">
+                      <span>Stock &amp; COGS Auto-Sync</span>
+                      <span style="color:#4ade80"><span data-lang="ar">مربوط بالجلسة</span><span data-lang="en">Billed to Session</span></span>
+                    </div>
+                    <div style="margin-top:0.4rem;font-size:0.82rem;color:var(--muted-foreground);"><span data-lang="ar">خصم تلقائي من رصيد المخزون وحساب هامش الربح بالتكلفة المرجحة</span><span data-lang="en">Instant inventory deduction and weighted-average COGS margin</span></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="os-panel" data-os-panel="wa">
+                <div style="background:#0f2922;border:1px solid rgba(37,211,102,0.38);border-radius:1.15rem;padding:1.15rem;color:#e9fbf2;">
+                  <div style="display:flex;justify-content:space-between;font-size:0.78rem;font-weight:800;color:#86efac;margin-bottom:0.45rem;">
+                    <span>WhatsApp Business API · play podz</span>
+                    <span>Notify Me FIFO</span>
+                  </div>
+                  <p style="margin:0;font-size:0.9rem;">
+                    <span data-lang="ar">الغرفة اللي كنت مستنيها بقت متاحة دلوقتي. عندك 60 ثانية تأكد انك هتيجي أو هتروح للي بعدك في قائمة الانتظار.</span>
+                    <span data-lang="en">The room you were waiting for is now available. You have 60 seconds to confirm you're coming before your turn passes to the next player.</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- HowToBook-style 4 Animated Scene Cards for B2B Venue OS -->
+      <section class="steps-section reveal">
+        <div aria-hidden="true" class="steps-glow"></div>
+        <div class="container">
+          <div>
+            <span class="kicker-pill">
+              <span>🎮</span>
+              <span data-lang="ar">إزاي السيستم بيشغّل صالتك</span>
+              <span data-lang="en">HOW VENUE OS WORKS</span>
+            </span>
+            <h2 class="section-heading">
+              <span data-lang="ar">رحلة التشغيل والأرباح في 4 خطوات</span>
+              <span data-lang="en">From Booking to Ledger in 4 Automated Steps</span>
+            </h2>
+            <p class="section-sub">
+              <span data-lang="ar">كل خطوة متصلة تلقائياً بين تطبيق اللاعب وشاشة الكاشير ولوحة المالك.</span>
+              <span data-lang="en">Every step flows automatically between the player app, cashier floor view, and owner cockpit.</span>
+            </p>
+          </div>
+
+          <ol class="steps-grid">
+            <li>
+              <div class="step-ring-card step-ring-gold">
+                <div class="step-inner-card">
+                  <div aria-hidden="true" class="step-top-blur"></div>
+                  <div class="step-scene">
+                    <div class="scene-dots-bg"></div>
+                    <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.45rem;">
+                      <div class="scene-pin-bounce" style="background:#C9A84C;color:#0D1B3E;padding:0.35rem 0.75rem;border-radius:999px;font-size:0.76rem;font-weight:900;box-shadow:0 8px 20px rgba(201,168,76,0.45);">
+                        <span data-lang="ar">صالتك على الخريطة · 6 متاح</span>
+                        <span data-lang="en">Live on Map · 6 Free Now</span>
+                      </div>
+                      <div style="font-size:0.72rem;color:#BED7F1;background:rgba(7,13,28,0.75);padding:0.25rem 0.65rem;border-radius:999px;border:1px solid rgba(190,215,241,0.25);">
+                        playpodz.app ↔ Floor View
+                      </div>
+                    </div>
+                  </div>
+                  <div class="step-title-row">
+                    <span class="step-num-badge">1</span>
+                    <h3 class="step-title"><span data-lang="ar">ظهور حي وحجز فوري</span><span data-lang="en">Live Map &amp; Instant Booking</span></h3>
+                  </div>
+                  <p class="step-desc"><span data-lang="ar">حالة أجهزتك تتحدث كل 10 ثواني على playpodz.app ليستقبل الكاشير حجوزات جاهزة ومؤكدة.</span><span data-lang="en">Your live station availability syncs every 10s so players book free rooms without phone calls.</span></p>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="step-ring-card step-ring-sky">
+                <div class="step-inner-card">
+                  <div aria-hidden="true" class="step-top-blur"></div>
+                  <div class="step-scene" style="padding:0.75rem;display:flex;flex-direction:column;justify-content:space-between;">
+                    <div style="display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.06);border-radius:0.75rem;padding:0.4rem 0.6rem;">
+                      <span style="font-size:0.75rem;font-weight:700;color:#fff;">VIP Room · PS5</span>
+                      <span style="font-size:0.68rem;font-weight:800;color:#BED7F1;background:rgba(190,215,241,0.18);padding:0.15rem 0.5rem;border-radius:999px;">Notify Me · FIFO</span>
+                    </div>
+                    <div class="scene-wa-toast">
+                      <span style="width:1.75rem;height:1.75rem;border-radius:999px;background:#25D366;color:#fff;display:grid;place-items:center;font-size:0.85rem;flex-shrink:0;">💬</span>
+                      <div>
+                        <div style="font-size:10px;font-weight:700;color:#5B6475;">WhatsApp · play podz</div>
+                        <div style="font-size:11px;font-weight:800;color:#0D1B3E;"><span data-lang="ar">الغرفة بقت فاضية! أكد حضورك</span><span data-lang="en">Room is free! Confirm arrival</span></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="step-title-row">
+                    <span class="step-num-badge">2</span>
+                    <h3 class="step-title"><span data-lang="ar">طابور انتظار واتساب</span><span data-lang="en">WhatsApp Notify Me Queue</span></h3>
+                  </div>
+                  <p class="step-desc"><span data-lang="ar">لما الصالة تكون كاملة، السيستم بيبعت واتساب أوتوماتيك لأول لاعب في الطابور أول ما جهاز يفضى.</span><span data-lang="en">When full, our FIFO waitlist automatically messages the next player via WhatsApp the second a spot opens.</span></p>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="step-ring-card step-ring-sand">
+                <div class="step-inner-card">
+                  <div aria-hidden="true" class="step-top-blur"></div>
+                  <div class="step-scene" style="display:flex;align-items:center;justify-content:center;gap:0.85rem;">
+                    <div class="qr-frame">
+                      <span class="qr-corner tl"></span><span class="qr-corner tr"></span>
+                      <span class="qr-corner bl"></span><span class="qr-corner br"></span>
+                      <img src="./assets/brand/qr-sample.png" alt="" class="qr-img" />
+                      <span class="qr-laser"></span>
+                    </div>
+                    <div style="border-radius:0.75rem;border:1px solid rgba(216,203,179,0.35);background:rgba(216,203,179,0.12);padding:0.45rem 0.65rem;text-align:center;">
+                      <div style="font-size:0.68rem;color:#D8CBB3;font-weight:700;">Room QR</div>
+                      <div dir="ltr" style="font-family:monospace;font-size:0.95rem;font-weight:800;color:#fff;">01:24</div>
+                    </div>
+                  </div>
+                  <div class="step-title-row">
+                    <span class="step-num-badge">3</span>
+                    <h3 class="step-title"><span data-lang="ar">مسح QR وطلبات البار</span><span data-lang="en">Room QR &amp; Bar POS</span></h3>
+                  </div>
+                  <p class="step-desc"><span data-lang="ar">يمسح اللاعب كود الغرفة لمتابعة وقته وطلب المشروبات والمأكولات مباشرة لشاشة البار مع خصم المخزون.</span><span data-lang="en">Players scan the station QR to track live session time and order F&amp;B directly to the Bar panel.</span></p>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="step-ring-card step-ring-gold">
+                <div class="step-inner-card">
+                  <div aria-hidden="true" class="step-top-blur"></div>
+                  <div class="step-scene" style="display:flex;align-items:center;justify-content:center;">
+                    <div style="position:relative;width:5.8rem;height:5.8rem;">
+                      <svg viewBox="0 0 80 80" style="width:100%;height:100%;transform:rotate(-90deg);">
+                        <circle cx="40" cy="40" r="33" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="7" />
+                        <circle cx="40" cy="40" r="33" fill="none" stroke="#C9A84C" stroke-width="7" stroke-linecap="round" stroke-dasharray="207" stroke-dashoffset="42" />
+                      </svg>
+                      <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;">
+                        <span dir="ltr" style="font-size:1.15rem;font-weight:900;color:#fff;">82%</span>
+                        <span style="font-size:9.5px;font-weight:700;color:#C9A84C;">P&amp;L · Live</span>
+                      </div>
+                    </div>
+                    <span dir="ltr" class="float-badge-anim" style="position:absolute;inset-inline-end:14%;top:18%;background:#C9A84C;color:#0D1B3E;border-radius:999px;padding:0.15rem 0.5rem;font-size:10.5px;font-weight:900;">+XP</span>
+                  </div>
+                  <div class="step-title-row">
+                    <span class="step-num-badge">4</span>
+                    <h3 class="step-title"><span data-lang="ar">دفاتر ثابتة وولاء</span><span data-lang="en">Immutable P&amp;L &amp; Loyalty</span></h3>
+                  </div>
+                  <p class="step-desc"><span data-lang="ar">تقفيل فوري للفاتورة (كاش/أونلاين/نقاط) في دفاتر مالية غير قابلة للتلاعب مع تقارير الأرباح والخسائر.</span><span data-lang="en">Every session settles into immutable revenue ledgers with automated XP loyalty and branch P&amp;L reports.</span></p>
+                </div>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Before vs After Operational Comparison -->
+      <section class="steps-section reveal">
+        <div class="container">
+          <div style="margin-bottom:1.5rem;">
+            <span class="kicker-pill"><span>🔄</span><span data-lang="ar">الفرق الفعلي في التشغيل</span><span data-lang="en">BEFORE &amp; AFTER</span></span>
+            <h2 class="section-heading"><span data-lang="ar">ودّع فوضى الواتساب والورقة إلى الأبد</span><span data-lang="en">Leave Manual WhatsApp &amp; Paper Chaos Behind</span></h2>
+          </div>
+
+          <div class="grid-2">
+            <div class="compare-box compare-before">
+              <h3 style="margin:0;font-size:1.15rem;font-weight:800;color:#fca5a5;"><span data-lang="ar">قبل play podz</span><span data-lang="en">Before play podz</span></h3>
+              <ul class="compare-list">
+                <li><span style="color:#f87171;font-weight:900;">✕</span><span data-lang="ar">تعارض حجوزات الواتساب والمكالمات وخسارة عملاء عند امتلاء الصالة.</span><span data-lang="en">Double bookings on WhatsApp and lost walk-away demand when full.</span></li>
+                <li><span style="color:#f87171;font-weight:900;">✕</span><span data-lang="ar">غياب حساب الإيراد المفقود من الأجهزة الخاملة أو تكلفة مخزون الكافيه.</span><span data-lang="en">Zero visibility into idle-station losses or real F&amp;B stock COGS.</span></li>
+                <li><span style="color:#f87171;font-weight:900;">✕</span><span data-lang="ar">حجوزات وهمية وعدم الحضور (No-Show) بدون أي حماية أو تحصيل.</span><span data-lang="en">Unchecked no-shows with zero financial protection or debt recovery.</span></li>
+              </ul>
+            </div>
+
+            <div class="compare-box compare-after">
+              <h3 style="margin:0;font-size:1.15rem;font-weight:800;color:#e0c578;"><span data-lang="ar">مع play podz Venue OS</span><span data-lang="en">With play podz Venue OS</span></h3>
+              <ul class="compare-list">
+                <li><span style="color:#e0c578;font-weight:900;">✓</span><span data-lang="ar">خريطة صالة حية متزامنة مع الحجوزات الأونلاين وطابور Notify Me التلقائي.</span><span data-lang="en">Live Floor View synced with online reservations and auto WhatsApp waitlists.</span></li>
+                <li><span style="color:#e0c578;font-weight:900;">✓</span><span data-lang="ar">دفاتر مالية ثابتة، تقارير P&amp;L، مخزون بالمتوسط المرجح، وسجل نشاط الموظفين.</span><span data-lang="en">Immutable ledgers, P&amp;L analytics, weighted-average stock, and staff Audit Logs.</span></li>
+                <li><span style="color:#e0c578;font-weight:900;">✓</span><span data-lang="ar">حماية عدم الحضور + نقاط ولاء ورتب XP تحول الزوار لعملاء دائمين.</span><span data-lang="en">No-show debt protection + XP loyalty ranks driving repeat player visits.</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- LoungeCard-Style Showcase of Pages -->
+      <section class="steps-section reveal">
+        <div class="container">
+          <div style="margin-bottom:1.5rem;">
+            <span class="kicker-pill"><span>✨</span><span data-lang="ar">أقسام المنصة</span><span data-lang="en">EXPLORE THE PLATFORM</span></span>
+            <h2 class="section-heading"><span data-lang="ar">تعمّق في كل تفاصيل النظام</span><span data-lang="en">Dive Deeper Into Every Module</span></h2>
+          </div>
+
+          <div class="grid-3">
+            <a href="./features/" class="family-card">
+              <div class="family-card-cover cover-placeholder">
+                <div class="family-card-top-pills"><span class="dark-status-chip"><span class="live-dot" style="width:6px;height:6px"></span> Core + Growth</span></div>
+                <span style="font-size:3rem;">⚙️</span>
+                <div class="card-photo-fade"></div>
+              </div>
+              <div class="family-card-body">
+                <div>
+                  <h3 style="margin:0;font-size:1.15rem;font-weight:800;"><span data-lang="ar">كل مميزات النظام</span><span data-lang="en">All Platform Features</span></h3>
+                  <p style="margin:0.4rem 0 0;font-size:0.88rem;color:var(--muted-foreground);"><span data-lang="ar">المؤقتات، قوائم انتظار واتساب، طلبات الغرف عبر QR، المخزون، والدفاتر المالية الثابتة.</span><span data-lang="en">Live timers, WhatsApp Notify Me queues, room QR F&amp;B, stock costing, and immutable P&amp;L.</span></p>
+                </div>
+                <div class="availability-shell">
+                  <span class="availability-badge">9+</span>
+                  <span style="font-size:0.78rem;font-weight:700;color:var(--muted-foreground);"><span data-lang="ar">وحدات متكاملة</span><span data-lang="en">Core Modules</span></span>
+                  <span style="margin-inline-start:auto;font-size:0.75rem;font-weight:800;color:var(--primary);">→</span>
+                </div>
+              </div>
+            </a>
+
+            <a href="./panels/" class="family-card">
+              <div class="family-card-cover cover-placeholder">
+                <div class="family-card-top-pills"><span class="dark-status-chip"><span class="live-dot" style="width:6px;height:6px"></span> AR &amp; EN</span></div>
+                <span style="font-size:3rem;">🖥️</span>
+                <div class="card-photo-fade"></div>
+              </div>
+              <div class="family-card-body">
+                <div>
+                  <h3 style="margin:0;font-size:1.15rem;font-weight:800;"><span data-lang="ar">لوحات التحكم الخمسة</span><span data-lang="en">The 5 Role Panels</span></h3>
+                  <p style="margin:0.4rem 0 0;font-size:0.88rem;color:var(--muted-foreground);"><span data-lang="ar">لوحة المالك، شاشة الكاشير، لوحة البار، بوابة الموظفين، وإدارة الفروع المتعددة.</span><span data-lang="en">Owner Cockpit, Cashier Floor View, Bar Dashboard, Staff Portal, and Multi-Branch Admin.</span></p>
+                </div>
+                <div class="availability-shell">
+                  <span class="availability-badge green">5</span>
+                  <span style="font-size:0.78rem;font-weight:700;color:var(--muted-foreground);"><span data-lang="ar">لوحات متخصصة</span><span data-lang="en">Role Panels</span></span>
+                  <span style="margin-inline-start:auto;font-size:0.75rem;font-weight:800;color:var(--primary);">→</span>
+                </div>
+              </div>
+            </a>
+
+            <a href="./venues/" class="family-card">
+              <div class="family-card-cover cover-placeholder">
+                <div class="family-card-top-pills"><span class="dark-status-chip"><span class="live-dot" style="width:6px;height:6px"></span> Multi-Activity</span></div>
+                <span style="font-size:3rem;">🎯</span>
+                <div class="card-photo-fade"></div>
+              </div>
+              <div class="family-card-body">
+                <div>
+                  <h3 style="margin:0;font-size:1.15rem;font-weight:800;"><span data-lang="ar">القطاعات ومُهيّئ الصالات</span><span data-lang="en">Venues &amp; Configurator</span></h3>
+                  <p style="margin:0.4rem 0 0;font-size:0.88rem;color:var(--muted-foreground);"><span data-lang="ar">بلايستيشن، بلياردو، بولينج، ترامبولين، غرف هروب، وليزر تاج مع أداة تحديد باقة صالتك.</span><span data-lang="en">PlayStation, Billiards, Bowling, Trampoline, Escape Rooms &amp; Laser Tag + live configurator.</span></p>
+                </div>
+                <div class="availability-shell">
+                  <span class="availability-badge sky">6+</span>
+                  <span style="font-size:0.78rem;font-weight:700;color:var(--muted-foreground);"><span data-lang="ar">أنشطة ترفيهية</span><span data-lang="en">Venue Formats</span></span>
+                  <span style="margin-inline-start:auto;font-size:0.75rem;font-weight:800;color:var(--primary);">→</span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-contact-band">
+          <div>
+            <h3 style="margin:0;font-size:1.05rem;font-weight:800;">
+              <span data-lang="ar">جاهز لتشغيل صالتك بنظام play podz؟</span>
+              <span data-lang="en">Ready to power your venue with play podz?</span>
+            </h3>
+            <p style="margin:0.25rem 0 0;font-size:0.88rem;color:var(--muted-foreground);">
+              <span data-lang="ar">اطلب عرض سعر وديمو مخصص لعدد أجهزتك وفروعك الآن.</span>
+              <span data-lang="en">Request a custom B2B quote and live walkthrough for your venue.</span>
+            </p>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:0.55rem;">
+            <a href="https://wa.me/201142762313" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+              <span data-lang="ar">راسلنا على واتساب</span>
+              <span data-lang="en">Chat on WhatsApp</span>
+            </a>
+            <a href="./contact/" class="btn btn-primary">
+              <span data-lang="ar">اطلب عرض سعر</span>
+              <span data-lang="en">Request a Quote</span>
+            </a>
+            <a href="https://playpodz.app/" target="_blank" rel="noopener noreferrer" class="lg header-action-pill" style="height:2.75rem;padding-inline:1.1rem;">
+              <span data-lang="ar">زيارة منصتنا الرئيسية</span>
+              <span data-lang="en">Visit Our Main Platform</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-grid">
+          <div class="footer-col-wide">
+            <h3 style="margin:0 0 0.5rem;font-size:0.9rem;font-weight:800;">
+              <span data-lang="ar">تواصل معنا · بيانات الشركة</span>
+              <span data-lang="en">Contact &amp; Legal Info</span>
+            </h3>
+            <ul class="footer-list">
+              <li><strong style="color:#fff">play podz</strong></li>
+              <li dir="ltr">new dameitta dar masr 1, new damietta, dameitta 34517, Egypt</li>
+              <li><a href="mailto:playpodzapp@gmail.com" dir="ltr">✉ playpodzapp@gmail.com</a></li>
+              <li><a href="tel:+201142762313" dir="ltr">☎ +201142762313</a></li>
+              <li><a href="https://wa.me/201142762313" target="_blank" rel="noopener noreferrer"><span data-lang="ar">💬 راسلنا على واتساب</span><span data-lang="en">💬 WhatsApp Business</span></a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 style="margin:0 0 0.5rem;font-size:0.9rem;font-weight:800;">
+              <span data-lang="ar">روابط ومعلومات</span>
+              <span data-lang="en">Links &amp; Legal</span>
+            </h3>
+            <ul class="footer-list">
+              <li><a href="./features/"><span data-lang="ar">مميزات النظام</span><span data-lang="en">Platform Features</span></a></li>
+              <li><a href="./panels/"><span data-lang="ar">لوحات التحكم الخمس</span><span data-lang="en">The 5 Control Panels</span></a></li>
+              <li><a href="./venues/"><span data-lang="ar">القطاعات ومُهيّئ الباقة</span><span data-lang="en">Venues &amp; Configurator</span></a></li>
+              <li><a href="https://playpodz.app/" target="_blank" rel="noopener noreferrer"><span data-lang="ar">زيارة منصتنا الرئيسية (playpodz.app)</span><span data-lang="en">Visit Our Main Platform</span></a></li>
+              <li><a href="./privacy-policy/"><span data-lang="ar">سياسة الخصوصية</span><span data-lang="en">Privacy Policy</span></a></li>
+              <li><a href="./terms-of-service/"><span data-lang="ar">شروط الاستخدام</span><span data-lang="en">Terms of Service</span></a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 style="margin:0 0 0.5rem;font-size:0.9rem;font-weight:800;">
+              <span data-lang="ar">تابعنا</span>
+              <span data-lang="en">Follow Us</span>
+            </h3>
+            <div style="display:flex;gap:0.55rem;margin-top:0.65rem;">
+              <a href="https://www.facebook.com/share/19SYsKV4va/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="social-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              </a>
+              <a href="https://www.instagram.com/playpodzeg?igsi=aWpud2Ewazcwa2ph" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+              </a>
+              <a href="https://www.tiktok.com/@play.podz?_r=1&_t=ZS-98BwswoCIib" target="_blank" rel="noopener noreferrer" aria-label="TikTok" class="social-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 1 1-2.89-2.89c.3 0 .58.05.85.13V9.4a6.33 6.33 0 0 0-.85-.06 6.34 6.34 0 1 0 6.34 6.34V8.86a8.16 8.16 0 0 0 4.77 1.52v-3.45a4.85 4.85 0 0 1-1-.24z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-copy">
+          <bdi dir="ltr">© 2026 play podz · new dameitta dar masr 1, new damietta, dameitta 34517, Egypt</bdi> ·
+          <span data-lang="ar">جميع الحقوق محفوظة</span><span data-lang="en">All rights reserved</span>
+        </div>
+      </div>
+    </footer>
+    
+    <script src="./assets/js/main.js"></script>
+  </body>
+</html>
