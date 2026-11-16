@@ -1629,3 +1629,23 @@ html[dir="rtl"] .cover-placeholder::before {
     transform: none;
   }
 }
+
+/* Hide top-right Quote pill on narrow phones so center PLAY PODZ logo never overlaps */
+.header-desktop-quote {
+  display: none !important;
+}
+@media (min-width: 768px) {
+  .header-desktop-quote {
+    display: inline-flex !important;
+  }
+}
+@media (max-width: 399px) {
+  .logo-morph-box.size-top {
+    height: 2.15rem;
+  }
+}
+.phone-tab-icon svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
