@@ -1,0 +1,8 @@
+// Cloudflare Workers Builds: static site, no build step. Keeps production and branch builds working.
+{
+  "name": "playpodzapp-landing",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "."
+  }
+}

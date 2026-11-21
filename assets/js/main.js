@@ -477,13 +477,6 @@
       const isEn = html.getAttribute("lang") === "en";
       if (!lead.venue || !lead.name || !lead.phone) return;
 
-      // Save the lead even if the owner never presses send in WhatsApp (Pages Function /api/lead)
-      try {
-        const body = JSON.stringify({ ...lead, lang: isEn ? "en" : "ar", page: location.pathname });
-        if (!(navigator.sendBeacon && navigator.sendBeacon("/api/lead", new Blob([body], { type: "application/json" })))) {
-          fetch("/api/lead", { method: "POST", headers: { "Content-Type": "application/json" }, body, keepalive: true }).catch(() => {});
-        }
-      } catch (_) {}
       trackLead("quote-form");
 
       const lines = isEn
@@ -511,8 +504,8 @@
       window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
       if (statusEl) {
         statusEl.textContent = isEn
-          ? "Thanks! Your details reached us. Press send in WhatsApp to talk to us right away."
-          : "شكراً! بياناتك وصلتنا. دوس إرسال في واتساب عشان نكلمك على طول.";
+          ? "WhatsApp opened with your details. Press send and we'll get back to you."
+          : "واتساب اتفتح وبياناتك مكتوبة. دوس إرسال ونكلمك.";
       }
     });
   }
