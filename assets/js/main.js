@@ -406,50 +406,56 @@
     });
   }
 
-  /* ── 9. Venue Configurator & Quote Form ────────────────────────────── */
+  /* ── 9. Venue Configurator, Quote Form & Lead Tracking ──────────────── */
+  const WA_NUMBER = "201142762313";
+  const cfg = window.PP_CONFIG || {};
+
+  // Meta Pixel: loads only when an ID is set in assets/js/config.js
+  if (cfg.metaPixelId) {
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");
+    window.fbq("init", cfg.metaPixelId);
+    window.fbq("track", "PageView");
+  }
+  const trackLead = (source) => {
+    try { if (window.fbq) window.fbq("track", "Lead", { content_name: source }); } catch (_) {}
+  };
+  // Any WhatsApp link click counts as a lead (demo buttons, footer, contact)
+  document.addEventListener("click", (e) => {
+    const a = e.target.closest && e.target.closest('a[href^="https://wa.me/"]');
+    if (a) trackLead(a.getAttribute("data-lead") || "whatsapp");
+  });
+
   const cfgForm = document.getElementById("venue-configurator");
   const cfgOutput = document.getElementById("configurator-output");
   if (cfgForm && cfgOutput) {
     const updateCfg = () => {
       const data = new FormData(cfgForm);
-      const type = String(data.get("cfgType") || "PlayStation & Gaming Lounge");
-      const count = String(data.get("cfgStations") || "12");
-      const addons = data.getAll("cfgAddon").map(String);
+      const type = String(data.get("cfgType") || "PlayStation");
+      const count = Math.max(1, parseInt(String(data.get("cfgStations") || "10"), 10) || 1);
+      const cafe = data.get("cfgCafe") === "1";
       const isEn = html.getAttribute("lang") === "en";
-      const list = isEn
-        ? [
-            "Cashier Floor View & 10s Live Timers",
-            "Owner Cockpit & Intelligence KPIs",
-            "playpodz.app Marketplace Storefront + QR Kits",
-            "Automated WhatsApp Notify Me Waitlist",
-            ...addons,
-          ]
-        : [
-            "شاشة الكاشير وعرض الصالة الحي كل 10 ثواني",
-            "لوحة المالك ومؤشرات الذكاء التشغيلي والأرباح",
-            "صفحة الصالة على playpodz.app + أكواد الـ QR",
-            "قائمة الانتظار التلقائية عبر واتساب Notify Me",
-            ...addons,
-          ];
-
+      const activity = /Trampoline/.test(type);
+      const plan = cafe ? "Growth" : "Starter";
+      const rate = cafe ? 17 : 10;
+      const monthly = (rate * count).toLocaleString("en-US");
+      const head = activity
+        ? (isEn ? "Big activities are separate add-ons" : "الأنشطة الكبيرة ليها اشتراك إضافي")
+        : (isEn ? `Suggested plan: ${plan}` : `الباقة المناسبة: ${plan}`);
+      const price = activity
+        ? (isEn ? "Pricing depends on the activity. Message us and we'll work it out with you." : "السعر حسب النشاط. كلمنا ونحسبها معاك.")
+        : (isEn ? `${rate} EGP × ${count} devices = <strong style="color:#fff;font-size:1.6rem;" dir="ltr">${monthly} EGP</strong> a month`
+                : `${rate} جنيه × ${count} جهاز = <strong style="color:#fff;font-size:1.6rem;" dir="ltr">${monthly} جنيه</strong> في الشهر`);
+      const note = isEn ? "No setup fee. Free trial first." : "مفيش مصاريف تركيب. وتبدأ بفترة تجريبية مجانية.";
+      const msg = isEn
+        ? `Hi Play Podz, I'd like a demo. Venue: ${type}, ${count} devices${cafe ? ", with a café/bar" : ""}.`
+        : `أهلاً Play Podz، عايز أحجز ديمو. المكان: ${type}، ${count} جهاز${cafe ? "، وفيه كافيه/بار" : ""}.`;
       cfgOutput.innerHTML = `
-        <h3 style="margin:0 0 0.35rem;font-size:1.2rem;font-weight:800;color:#fff;">
-          ${isEn ? "Recommended Venue OS Bundle" : "تكوين النظام المقترح لصالتك"}
-        </h3>
-        <p style="margin:0 0 1rem;font-size:0.9rem;color:#bed7f1;">
-          ${type} · ${count} ${isEn ? "Stations / Capacity" : "جهاز / سعة"}
-        </p>
-        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.55rem;">
-          ${list.map((m) => `<li style="display:flex;gap:0.5rem;font-size:0.9rem;color:#d8cbb3;"><span style="color:#c9a84c;font-weight:900;">✓</span><span>${m}</span></li>`).join("")}
-        </ul>
-      `;
-      const waLink = document.getElementById("cfg-wa-link");
-      if (waLink) {
-        const msg = isEn
-          ? `Hello play podz, I configured a setup for ${type} (${count} stations) with: ${list.join(", ")}. Please send a quote.`
-          : `مرحباً play podz، أرغب في عرض سعر لتجهيز ${type} (عدد ${count}) بالوحدات التالية: ${list.join("، ")}.`;
-        waLink.setAttribute("href", `https://wa.me/201142762313?text=${encodeURIComponent(msg)}`);
-      }
+        <h3 class="pp-card-title">${head}</h3>
+        <p class="pp-card-text" style="font-size:1rem;">${price}</p>
+        <p class="pp-card-text">${note}</p>
+        <a href="https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp" data-lead="configurator" style="align-self:flex-start;margin-top:.4rem;">
+          ${isEn ? "Book a demo on WhatsApp" : "احجز ديمو على واتساب"}
+        </a>`;
     };
     cfgForm.addEventListener("change", updateCfg);
     cfgForm.addEventListener("input", updateCfg);
@@ -463,50 +469,50 @@
     quoteForm.addEventListener("submit", (e) => {
       e.preventDefault();
       const data = new FormData(quoteForm);
-      const venue = String(data.get("venue") || "").trim();
-      const name = String(data.get("name") || "").trim();
-      const phone = String(data.get("phone") || "").trim();
-      const venueType = String(data.get("venueType") || "").trim();
-      const stations = String(data.get("stations") || "").trim();
-      const branches = String(data.get("branches") || "").trim();
-      const city = String(data.get("city") || "").trim();
-      const modules = data.getAll("modules").map(String);
-      const notes = String(data.get("notes") || "").trim();
+      const get = (k) => String(data.get(k) || "").trim();
+      const lead = {
+        venue: get("venue"), name: get("name"), phone: get("phone"), city: get("city"),
+        venueType: get("venueType"), stations: get("stations"), notes: get("notes"), website: get("website"),
+      };
       const isEn = html.getAttribute("lang") === "en";
+      if (!lead.venue || !lead.name || !lead.phone) return;
 
-      if (!venue || !name || !phone) return;
+      // Save the lead even if the owner never presses send in WhatsApp (Pages Function /api/lead)
+      try {
+        const body = JSON.stringify({ ...lead, lang: isEn ? "en" : "ar", page: location.pathname });
+        if (!(navigator.sendBeacon && navigator.sendBeacon("/api/lead", new Blob([body], { type: "application/json" })))) {
+          fetch("/api/lead", { method: "POST", headers: { "Content-Type": "application/json" }, body, keepalive: true }).catch(() => {});
+        }
+      } catch (_) {}
+      trackLead("quote-form");
+
       const lines = isEn
         ? [
-            "Hello play podz team, I would like to request a B2B Venue OS quote:",
-            `• Venue Name: ${venue}`,
-            `• Contact Name: ${name}`,
-            `• Phone / WhatsApp: ${phone}`,
-            city ? `• City: ${city}` : "",
-            branches ? `• Branches: ${branches}` : "",
-            venueType ? `• Venue Type: ${venueType}` : "",
-            stations ? `• Stations / Capacity: ${stations}` : "",
-            modules.length ? `• Modules: ${modules.join(", ")}` : "",
-            notes ? `• Notes: ${notes}` : "",
+            "Hi Play Podz, I'd like a demo:",
+            `• Venue: ${lead.venue}`,
+            `• Name: ${lead.name}`,
+            `• WhatsApp: ${lead.phone}`,
+            lead.city ? `• City: ${lead.city}` : "",
+            lead.venueType ? `• Type: ${lead.venueType}` : "",
+            lead.stations ? `• Devices: ${lead.stations}` : "",
+            lead.notes ? `• Notes: ${lead.notes}` : "",
           ]
         : [
-            "مرحباً فريق play podz، أرغب في طلب عرض سعر لنظام إدارة الصالات (Venue OS):",
-            `• اسم الصالة: ${venue}`,
-            `• اسم المسؤول: ${name}`,
-            `• رقم الهاتف / واتساب: ${phone}`,
-            city ? `• المدينة: ${city}` : "",
-            branches ? `• عدد الفروع: ${branches}` : "",
-            venueType ? `• نوع النشاط: ${venueType}` : "",
-            stations ? `• عدد الأجهزة / السعة: ${stations}` : "",
-            modules.length ? `• الوحدات: ${modules.join("، ")}` : "",
-            notes ? `• ملاحظات: ${notes}` : "",
+            "أهلاً Play Podz، عايز أحجز ديمو:",
+            `• المكان: ${lead.venue}`,
+            `• الاسم: ${lead.name}`,
+            `• واتساب: ${lead.phone}`,
+            lead.city ? `• المدينة: ${lead.city}` : "",
+            lead.venueType ? `• النوع: ${lead.venueType}` : "",
+            lead.stations ? `• الأجهزة: ${lead.stations}` : "",
+            lead.notes ? `• ملاحظات: ${lead.notes}` : "",
           ];
       const message = lines.filter(Boolean).join("\n");
-      window.open(`https://wa.me/201142762313?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
+      window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
       if (statusEl) {
-        const mailUrl = `mailto:playpodzapp@gmail.com?subject=${encodeURIComponent("play podz B2B Quote — " + venue)}&body=${encodeURIComponent(message)}`;
-        statusEl.innerHTML = isEn
-          ? `WhatsApp opened with your quote request. Prefer email? <a href="${mailUrl}" style="color:#e0c578;text-decoration:underline;">Send via Email</a>`
-          : `تم تجهيز طلب عرض السعر عبر واتساب. تفضل الإرسال بالإيميل؟ <a href="${mailUrl}" style="color:#e0c578;text-decoration:underline;">أرسل عبر البريد الإلكتروني</a>`;
+        statusEl.textContent = isEn
+          ? "Thanks! Your details reached us. Press send in WhatsApp to talk to us right away."
+          : "شكراً! بياناتك وصلتنا. دوس إرسال في واتساب عشان نكلمك على طول.";
       }
     });
   }
