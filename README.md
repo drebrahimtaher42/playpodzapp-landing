@@ -1,6 +1,6 @@
 # playpodzapp.com — Play Podz B2B site
 
-Static site deployed by Cloudflare Workers Builds as static assets (no build step, no Wrangler config).
+Static site deployed by Cloudflare Workers Builds as static assets (no build step). `wrangler.jsonc` points the build at the repo root; `.assetsignore` keeps repo files private.
 Don't add a `functions/` folder: the automatic setup refuses to deploy a project that has one. Pages: home, features, screens (`/panels/`), venue types (`/venues/`), demo request (`/contact/`), privacy, terms.
 
 ## Settings
