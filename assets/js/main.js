@@ -435,17 +435,22 @@
       const cafe = data.get("cfgCafe") === "1";
       const isEn = html.getAttribute("lang") === "en";
       const activity = /Trampoline/.test(type);
-      const plan = cafe ? "Growth" : "Starter";
-      const rate = cafe ? 17 : 10;
-      const monthly = (rate * count).toLocaleString("en-US");
+      const plan = cafe ? (isEn ? "Advanced" : "المتقدمة") : (isEn ? "Basic" : "الأساسية");
+      const base = cafe ? 250 : 150;
+      const extraRate = cafe ? 15 : 10;
+      const extra = Math.max(0, count - 10);
+      const monthly = (base + extra * extraRate).toLocaleString("en-US");
       const head = activity
         ? (isEn ? "Big activities are separate add-ons" : "الأنشطة الكبيرة ليها اشتراك إضافي")
         : (isEn ? `Suggested plan: ${plan}` : `الباقة المناسبة: ${plan}`);
       const price = activity
         ? (isEn ? "Pricing depends on the activity. Message us and we'll work it out with you." : "السعر حسب النشاط. كلمنا ونحسبها معاك.")
-        : (isEn ? `${rate} EGP × ${count} devices = <strong style="color:#fff;font-size:1.6rem;" dir="ltr">${monthly} EGP</strong> a month`
-                : `${rate} جنيه × ${count} جهاز = <strong style="color:#fff;font-size:1.6rem;" dir="ltr">${monthly} جنيه</strong> في الشهر`);
-      const note = isEn ? "No setup fee. Free trial first." : "مفيش مصاريف تركيب. وتبدأ بفترة تجريبية مجانية.";
+        : extra === 0
+          ? (isEn ? `<strong style="color:#F5F5F2;font-size:1.6rem;" dir="ltr">${monthly} EGP</strong> / month (up to 10 devices)`
+                  : `<strong style="color:#F5F5F2;font-size:1.6rem;" dir="ltr">${monthly} جنيه</strong> / شهر (لحد 10 أجهزة)`)
+          : (isEn ? `${base} EGP (up to 10 devices) + ${extra} × ${extraRate} EGP = <strong style="color:#F5F5F2;font-size:1.6rem;" dir="ltr">${monthly} EGP</strong> / month`
+                  : `${base} جنيه (لحد 10 أجهزة) + ${extra} × ${extraRate} جنيه = <strong style="color:#F5F5F2;font-size:1.6rem;" dir="ltr">${monthly} جنيه</strong> / شهر`);
+      const note = isEn ? "Launch price locked for 6 months. Try it free before you pay." : "سعر الإطلاق ثابت 6 شهور. جرّب ببلاش قبل ما تدفع.";
       const msg = isEn
         ? `Hi Play Podz, I'd like a demo. Venue: ${type}, ${count} devices${cafe ? ", with a café/bar" : ""}.`
         : `أهلاً Play Podz، عايز أحجز ديمو. المكان: ${type}، ${count} جهاز${cafe ? "، وفيه كافيه/بار" : ""}.`;
